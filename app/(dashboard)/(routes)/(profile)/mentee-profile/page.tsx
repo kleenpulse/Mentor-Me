@@ -36,7 +36,7 @@ const menteeMenus: MenuProfileProps[] = [
 ];
 
 export default function MenteeProfilePage() {
-	const [activeTab, setActiveTab] = useState("");
+	const [activeTab, setActiveTab] = useState<string | null | undefined>("");
 	const router = useRouter();
 const params = useSearchParams().get('tab')
 
