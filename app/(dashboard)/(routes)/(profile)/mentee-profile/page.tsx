@@ -105,6 +105,7 @@ setActiveTab(params)
 									</p>
 								))}
 							</div>
+							<div className="w-full min-h-[250px]">
 							{activeTab === "overview" && (
 								<OverviewCard
 									desc="I'm Henrietta Okonkwo, a rising star in the world of product
@@ -122,7 +123,9 @@ setActiveTab(params)
 							)}
 							{activeTab === "my-mentors" && <MyMentorsCard />}
 							{activeTab === "commendations" && <Commendations />}
-						</div>
+
+							</div>
+													</div>
 					</div>
 				</div>
 				<div className="flex mt-10 w-full lg:w-[80%] justify-center items-center">
