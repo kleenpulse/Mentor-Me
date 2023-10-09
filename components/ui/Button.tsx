@@ -15,15 +15,16 @@ type ButtonProps = {
 	alt?: string;
 	titleClassName?: ButtonHTMLAttributes<HTMLButtonElement>["className"];
 	onclick?: () => void;
+	fullWidth?: boolean;
 };
 
 const getVariant = (variant = "primary"): string => {
 	switch (variant) {
 		case "primary":
-			return "bg-[#121212]  text-white  text-[16px] font-[500]   hover:bg-[#2A2A2A]  rounded-[6px] sm:rounded-[8px]   font-Inter";
+			return "bg-[#121212]  text-white  text-[16px] font-[500]     rounded-[6px] sm:rounded-[8px] hover:bg-[#2A2A2A]  font-Inter";
 
 		case "secondary":
-			return "bg-[#FFFF]  text-[#000] text-[16px] font-[500]  border-[1.5px]  border-[#121212]  rounded-[6px] sm:rounded-[8px]    font-Inter";
+			return "bg-[#FFFF]  text-[#000] text-[16px] font-[500]  border-[1.5px]  border-[#121212]  rounded-[6px] sm:rounded-[8px]    font-Inter hover:opacity-80";
 
 		case "disabled-primary":
 			return "bg-[#CCCCCC] text-[#808080]  font-Inter text-[16px]  rounded-[6px] sm:rounded-[8px]  font-[500]";
@@ -47,6 +48,7 @@ export default function Button({
 	title,
 	titleClassName,
 	onclick,
+	fullWidth,
 	props,
 }: ButtonProps) {
 	return (
@@ -54,8 +56,10 @@ export default function Button({
 			type={type || "button"}
 			className={cn(
 				`${getVariant(variant)}
-					xl:max-w-[140px]
-				 ${className} flex items-center justify-center gap-2 `
+					
+				 ${className} flex items-center justify-center gap-2 ${
+					fullWidth ? "!w-full" : "xl:max-w-[140px]"
+				} `
 			)}
 			onClick={onclick}
 			{...props}

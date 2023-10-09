@@ -1,5 +1,41 @@
 import * as React from "react";
 import { SVGProps } from "react";
+
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	width="22"
+	height="21"
+	viewBox="0 0 22 21"
+	fill="none"
+>
+	<path
+		d="M8.25781 17.4168L13.8712 11.8034C14.5342 11.1405 14.5342 10.0557 13.8712 9.39275L8.25781 3.77934"
+		stroke="#818181"
+		stroke-width="1.29143"
+		stroke-miterlimit="10"
+		stroke-linecap="round"
+		stroke-linejoin="round"
+	/>
+</svg>;
+export const GoNextArrowIcon = (props?: SVGProps<SVGSVGElement>) => (
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		width={22}
+		height={21}
+		fill="none"
+		{...props}
+	>
+		<path
+			stroke="#818181"
+			strokeLinecap="round"
+			strokeLinejoin="round"
+			strokeMiterlimit={10}
+			strokeWidth={1.291}
+			d="m8.258 17.417 5.613-5.614a1.71 1.71 0 0 0 0-2.41L8.258 3.779"
+		/>
+	</svg>
+);
+
 export const EditIcon = (props?: SVGProps<SVGSVGElement>) => (
 	<svg
 		xmlns="http://www.w3.org/2000/svg"

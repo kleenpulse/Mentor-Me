@@ -11,15 +11,26 @@ import {
 	ReviewsIcon,
 	Sessions,
 } from "@/public/SVGs";
+import { sessionHope, sessionPatricia, sessionShaolin } from "@/public";
+import { StaticImageData } from "next/image";
 
 // Types
 
 export type SidebarLinksProps = {
 	path: string;
 	label: string;
-
 	iconDark?: SVGProps<SVGSVGElement> | React.ReactNode;
 	id: number;
+};
+export type UpcomingSessionProp = {
+	id?: number;
+	name: string;
+	time: string;
+	date: string;
+	meetingLink: string;
+	rescheduleBtn: string;
+	reminderBtn: string;
+	imgSrc: string | StaticImageData;
 };
 export type FormProps = {
 	id: number;
@@ -28,6 +39,143 @@ export type FormProps = {
 	nature: string;
 	type: string;
 };
+
+export const upcomingSessions: UpcomingSessionProp[] = [
+	{
+		id: 1,
+		name: "Patricia Flow",
+		time: "4pm (WAT)",
+		date: "06 Sept",
+		meetingLink: "https://meet.mentorme.com/azv-bspc-fyb",
+		rescheduleBtn: "Reschedule Session",
+		reminderBtn: "Set reminder",
+		imgSrc: sessionPatricia,
+	},
+	{
+		id: 2,
+		name: "Shao Lin",
+		time: "4pm (WAT)",
+		date: "06 Sept",
+		meetingLink: "https://meet.mentorme.com/azv-bspc-fyb",
+		rescheduleBtn: "Reschedule Session",
+		reminderBtn: "Set reminder",
+		imgSrc: sessionShaolin,
+	},
+	{
+		id: 3,
+		name: "Hope Chidi",
+		time: "4pm (WAT)",
+		date: "06 Sept",
+		meetingLink: "https://meet.mentorme.com/azv-bspc-fyb",
+		rescheduleBtn: "Reschedule Session",
+		reminderBtn: "Set reminder",
+		imgSrc: sessionHope,
+	},
+];
+
+export const sidebarMenteeLinks: SidebarLinksProps[] = [
+	{
+		id: 1,
+		path: "/mentee-profile?path=home",
+		label: "Home",
+		iconDark: HomeIcon(),
+	},
+
+	{
+		id: 2,
+		path: "/mentee-messages?path=messages",
+		label: "Messages",
+		iconDark: MessageIcon(),
+	},
+	{
+		id: 3,
+		path: "/mentee-booking?path=bookings",
+		label: "Bookings",
+		iconDark: BookingIcon(),
+	},
+	{
+		id: 4,
+		path: "/mentee-sessions?path=sessions",
+		label: "Sessions",
+		iconDark: Sessions(),
+	},
+	{
+		id: 5,
+		path: "/mentee-resources?path=resources",
+		label: "Resources",
+		iconDark: ResourcesIcon(),
+	},
+	{
+		id: 6,
+		path: "/mentee-communities?path=communities",
+		label: "Communities",
+		iconDark: CommunitiesIcon(),
+	},
+];
+
+export const sidebarMentorLinks: SidebarLinksProps[] = [
+	{
+		id: 1,
+		path: "/mentor-profile?path=home",
+		label: "Home",
+		iconDark: HomeIcon(),
+	},
+
+	{
+		id: 2,
+		path: "/mentor-messages?path=messages",
+		label: "Messages",
+		iconDark: MessageIcon(),
+	},
+	{
+		id: 3,
+		path: "/mentor-my-mentors?path=MyMentors",
+		label: "My Mentors",
+		iconDark: MyMentorsIcons(),
+	},
+	{
+		id: 4,
+		path: "/mentor-booking?path=bookings",
+		label: "Bookings",
+		iconDark: BookingIcon(),
+	},
+	{
+		id: 5,
+		path: "/mentor-sessions?path=sessions",
+		label: "Sessions",
+		iconDark: Sessions(),
+	},
+	{
+		id: 6,
+		path: "/mentor-resources?path=resources",
+		label: "Resources",
+		iconDark: ResourcesIcon(),
+	},
+	{
+		id: 7,
+		path: "/mentor-communities?path=communities",
+		label: "Communities",
+		iconDark: CommunitiesIcon(),
+	},
+	{
+		id: 8,
+		path: "/mentor-earnings?path=earnings",
+		label: "Earnings",
+		iconDark: EarningIcon(),
+	},
+	{
+		id: 9,
+		path: "/mentor-plans?path=plans",
+		label: "Plans",
+		iconDark: PlansIcon(),
+	},
+	{
+		id: 10,
+		path: "/mentor-reviews?path=reviews",
+		label: "Reviews",
+		iconDark: ReviewsIcon(),
+	},
+];
 
 const form1Arr = [
 	{
@@ -194,107 +342,3 @@ const form5Arr = [
 const formData = [form1Arr, form2Arr, form3Arr, form4Arr, form5Arr];
 
 export default formData;
-
-export const sidebarMenteeLinks: SidebarLinksProps[] = [
-	{
-		id: 1,
-		path: "/mentee-profile?path=home&tab=overview",
-		label: "Home",
-		iconDark: HomeIcon(),
-	},
-
-	{
-		id: 2,
-		path: "/mentee-messages?path=messages",
-		label: "Messages",
-		iconDark: MessageIcon(),
-	},
-	{
-		id: 3,
-		path: "/mentee-booking?path=bookings",
-		label: "Bookings",
-		iconDark: BookingIcon(),
-	},
-	{
-		id: 4,
-		path: "/mentee-sessions?path=sessions",
-		label: "Sessions",
-		iconDark: Sessions(),
-	},
-	{
-		id: 5,
-		path: "/mentee-resources?path=resources",
-		label: "Resources",
-		iconDark: ResourcesIcon(),
-	},
-	{
-		id: 6,
-		path: "/mentee-communities?path=communities",
-		label: "Communities",
-		iconDark: CommunitiesIcon(),
-	},
-];
-
-export const sidebarMentorLinks: SidebarLinksProps[] = [
-	{
-		id: 1,
-		path: "/mentor-profile?path=home",
-		label: "Home",
-		iconDark: HomeIcon(),
-	},
-
-	{
-		id: 2,
-		path: "/mentor-messages?path=messages",
-		label: "Messages",
-		iconDark: MessageIcon(),
-	},
-	{
-		id: 3,
-		path: "/mentor-my-mentors?path=MyMentors",
-		label: "My Mentors",
-		iconDark: MyMentorsIcons(),
-	},
-	{
-		id: 4,
-		path: "/mentor-booking?path=bookings",
-		label: "Bookings",
-		iconDark: BookingIcon(),
-	},
-	{
-		id: 5,
-		path: "/mentor-sessions?path=sessions",
-		label: "Sessions",
-		iconDark: Sessions(),
-	},
-	{
-		id: 6,
-		path: "/mentor-resources?path=resources",
-		label: "Resources",
-		iconDark: ResourcesIcon(),
-	},
-	{
-		id: 7,
-		path: "/mentor-communities?path=communities",
-		label: "Communities",
-		iconDark: CommunitiesIcon(),
-	},
-	{
-		id: 8,
-		path: "/mentor-earnings?path=earnings",
-		label: "Earnings",
-		iconDark: EarningIcon(),
-	},
-	{
-		id: 9,
-		path: "/mentor-plans?path=plans",
-		label: "Plans",
-		iconDark: PlansIcon(),
-	},
-	{
-		id: 10,
-		path: "/mentor-reviews?path=reviews",
-		label: "Reviews",
-		iconDark: ReviewsIcon(),
-	},
-];
