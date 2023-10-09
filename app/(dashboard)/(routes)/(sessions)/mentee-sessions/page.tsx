@@ -7,13 +7,18 @@ import { upcomingSessions } from "@/constants/constants";
 import { faceMoji1, faceMoji2, faceMoji3, sessionCalender } from "@/public";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 type SessionsTabsProps = {
 	id: number;
 	title: string;
 	tab: string;
 };
+type ValuePiece = Date | null | string;
+
+type Value = ValuePiece | [ValuePiece, ValuePiece];
 const sessionsTabs: SessionsTabsProps[] = [
 	{
 		id: 1,
@@ -33,6 +38,8 @@ const sessionsTabs: SessionsTabsProps[] = [
 ];
 export default function AllSession() {
 	const [activeTab, setActiveTab] = useState<string | null | undefined>("");
+	const [value, onChange] = useState<Value>("2021-09-06");
+	const [calenderActive, setCalenderActive] = useState(false);
 	const router = useRouter();
 	const params = useSearchParams().get("tab");
 
@@ -41,7 +48,7 @@ export default function AllSession() {
 	}, [params]);
 
 	return (
-		<section className="bg-[#f9fafc] h-full w-full flex-col flex  pt-10 lg:pt-12 min-h-screen pb-16 lg:pb-0">
+		<section className="bg-[#f9fafc] h-full w-full flex-col flex  pt-10 lg:pt-12 lg:min-h-screen pb-16 lg:pb-0">
 			<div className="flex items-center gap-10 !max-lg:w-full border-b-[1px] border-Neutra10 px-4 sm:px-6 lg:px-8 2xl:px-24 select-none">
 				{sessionsTabs.map((session) => (
 					<p
@@ -81,14 +88,22 @@ export default function AllSession() {
 					{activeTab === "history" && <HistoryCard />}
 					{activeTab === "cancelled" && <CancelledCard />}
 				</div>
-				<div className="flex  2xl:w-full xl:flex-col xl:justify-center items-start lg:items-center justify-between max-lg:w-full gap-10 lg:gap-6 lg:mt-10 max-sm:flex-col">
-					<div className="w-full  lg:max-w-[330px] xl:max-w-[500px] lg:justify-start flex max-sm:justify-center">
-						<Image
-							src={sessionCalender}
-							alt="calender"
-							height={500}
-							width={500}
-						/>
+				<div className="flex  2xl:w-full xl:flex-col xl:justify-center items-start lg:items-center justify-between max-lg:w-full gap-10 lg:gap-6 lg:mt-10 max-sm:flex-col ">
+					<div
+						onClick={() => setCalenderActive(true)}
+						className="w-full  lg:max-w-[330px] xl:max-w-[500px] lg:justify-start flex max-sm:justify-center cursor-pointer"
+						title={!calenderActive ? "Show Calender" : ""}
+					>
+						{calenderActive ? (
+							<Calendar onChange={onChange} value={value} />
+						) : (
+							<Image
+								src={sessionCalender}
+								alt="calender"
+								height={500}
+								width={500}
+							/>
+						)}
 					</div>
 					<div className="flex flex-col w-full lg:max-w-[330px] xl:max-w-[500px] ">
 						<p className="text-NeutalBase font-Inter font-medium text-[18px]">
