@@ -42,7 +42,7 @@ export default function AllSession() {
 
 	return (
 		<section className="bg-[#f9fafc] h-full w-full flex-col flex  pt-10 lg:pt-12 min-h-screen pb-16 lg:pb-0">
-			<div className="flex items-center gap-10 !max-lg:w-full border-b-[1px] border-Neutra10 px-4 sm:px-6 lg:px-8 2xl:px-24">
+			<div className="flex items-center gap-10 !max-lg:w-full border-b-[1px] border-Neutra10 px-4 sm:px-6 lg:px-8 2xl:px-24 select-none">
 				{sessionsTabs.map((session) => (
 					<p
 						className={` cursor-pointer capitalize text-[14px] sm:text-[18px] font-Hanken pb-2 border-b-[2px] border-[#f9fafc]  text-Neutra40 ${
