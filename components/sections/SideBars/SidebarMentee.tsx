@@ -87,18 +87,24 @@ export default function SidebarMentee({
 				</div>
 				{/* profile */}
 
-				<div className="  bottom-0">
-					<ul className="  cursor-pointer   ">
-						<li className={`flex gap-3 items-center  p-2`}>
-							<ProfileIcon />
-							<span className="  font-Inter tetx-[10px] font-[500]   text-Neutra30">
-								<span className={`${light ? "text-[#000]" : " text-Neutra30"}`}>
-									Funmi Oladapo
+				<div
+					className={`${
+						path === "profile" ? "border border-[#E5FFFF] rounded-2xl" : ""
+					}`}
+				>
+					<Link href={"/mentee-profile?path=profile"} prefetch>
+						<ul className="  cursor-pointer   ">
+							<li className={`flex gap-3 items-center  p-2`}>
+								<ProfileIcon />
+								<span className="  font-Inter tetx-[10px] font-[500]   text-Neutra30">
+									<span className={`${path === "profile" ? "text-white" : ""}`}>
+										Funmi Oladapo
+									</span>
+									<br /> funmi@zurimp.com
 								</span>
-								<br /> funmi@zurimp.com
-							</span>
-						</li>
-					</ul>
+							</li>
+						</ul>
+					</Link>
 				</div>
 			</div>
 		</section>

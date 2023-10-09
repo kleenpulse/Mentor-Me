@@ -95,7 +95,7 @@ export default function MenteeProfilePage() {
 										}`}
 										key={menu.id}
 										onClick={() => {
-											router.push(`?path=home&tab=${menu.tab}`, {
+											router.push(`?path=profile&tab=${menu.tab}`, {
 												scroll: false,
 											});
 											setActiveTab(menu.tab);

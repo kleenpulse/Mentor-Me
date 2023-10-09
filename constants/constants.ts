@@ -76,7 +76,7 @@ export const upcomingSessions: UpcomingSessionProp[] = [
 export const sidebarMenteeLinks: SidebarLinksProps[] = [
 	{
 		id: 1,
-		path: "/mentee-profile?path=home",
+		path: "/mentee-home?path=home",
 		label: "Home",
 		iconDark: HomeIcon(),
 	},
