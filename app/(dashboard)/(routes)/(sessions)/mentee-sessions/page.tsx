@@ -98,7 +98,7 @@ export default function AllSession() {
 							<Calendar
 								onChange={onChange}
 								value={value}
-								className="!bg-transparent rounded-xl border-none outline-none !font-Inter"
+								className="!bg-transparent rounded-xl border-none outline-none !font-Inter hover:shadow-md"
 							/>
 						) : (
 							<Image
