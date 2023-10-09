@@ -95,7 +95,11 @@ export default function AllSession() {
 						title={!calenderActive ? "Show Calender" : ""}
 					>
 						{calenderActive ? (
-							<Calendar onChange={onChange} value={value} />
+							<Calendar
+								onChange={onChange}
+								value={value}
+								className="!bg-transparent rounded-xl border-none outline-none !font-Inter"
+							/>
 						) : (
 							<Image
 								src={sessionCalender}
